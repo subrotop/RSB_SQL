@@ -1,0 +1,87 @@
+﻿@model IEnumerable<RSB_SQL.RSBDiary>
+
+@{
+            Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="/css/result-light.css">
+    <style type="text/css">
+        a {
+            cursor: pointer;
+            text-decoration: underline;
+        }
+    </style>
+
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/modernizr")
+
+
+
+
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("RSB Application", "Index", "RSB", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "RSB")</li>
+                    <li>@Html.ActionLink("About", "About", "RSB")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "RSB")</li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+
+    <h4 class="h4">RSB Diary</h4>
+    <hr />
+ 
+    @using (Html.BeginForm())
+    {
+        <p class="navbar-text">
+            Filter By Case No: @Html.TextBox("SearchString")
+            <input type="submit" value="Search"/>
+        </p>
+    }
+
+    <table cellpadding="2" cellspacing="2" border="1" class="table">
+            <tr>
+                <th>Case ID</th>
+                <th>Jurisdiction</th>
+                <th>Case Name</th>
+                <th>Case No</th>
+                <th>Hearing Date</th>
+                <th>Judge</th>
+            </tr>
+
+            @foreach (RSBDiary rsbDiary in Model)
+            {
+                <tr>
+                    <td>@Html.ActionLink(@rsbDiary.id.ToString(), "RSBDiaryDetails", new { CaseID = @rsbDiary.id })</td>
+                    <td>@rsbDiary.jurisdiction</td>
+                    <td>@rsbDiary.case_name</td>
+                    <td>@rsbDiary.case_no</td>
+                    <td>@rsbDiary.hearing_date</td>
+                    <td>@rsbDiary.judge</td>
+                </tr>
+            }
+        </table>
+
+ 
+</body>
+</html>
+

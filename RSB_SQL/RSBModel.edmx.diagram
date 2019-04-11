@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ea66cb2ce69b48cba6f74230e622dcee" Name="Diagram1" ZoomLevel="79">
+        <EntityTypeShape EntityType="RSBModel.RSBDiary" Width="2.125" PointX="0.75" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RSBModel.PrivateContractor" Width="2.5" PointX="4" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RSBModel.TranscriptCopyType" Width="2.375" PointX="4.25" PointY="3.75" />
+        <EntityTypeShape EntityType="RSBModel.TranscriptParticularType" Width="2.5" PointX="9" PointY="0.875" />
+        <EntityTypeShape EntityType="RSBModel.TranscriptSoundType" Width="2.375" PointX="9" PointY="3.875" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

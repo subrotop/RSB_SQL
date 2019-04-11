@@ -1,0 +1,66 @@
+﻿@model RSB_SQL.RSBDiary
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>RSBDiaryDetails</title>
+</head>
+<body>
+    <div>
+        <h4>RSBDiary</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.jurisdiction)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.jurisdiction)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.case_name)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.case_name)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.case_no)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.case_no)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.hearing_date)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.hearing_date)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.judge)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.judge)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @*@Html.ActionLink("Edit", "Edit", new { id = Model.CaseID }) |*@
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>
