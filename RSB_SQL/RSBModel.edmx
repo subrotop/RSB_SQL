@@ -4,70 +4,37 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="RSBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityContainer Name="RSBModelStoreContainer">
-    <EntitySet Name="RSBDiary" EntityType="RSBModel.Store.RSBDiary" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="PrivateContractors" EntityType="RSBModel.Store.PrivateContractors" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="TranscriptCopyTypes" EntityType="RSBModel.Store.TranscriptCopyTypes" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="TranscriptParticularTypes" EntityType="RSBModel.Store.TranscriptParticularTypes" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="TranscriptSoundTypes" EntityType="RSBModel.Store.TranscriptSoundTypes" store:Type="Tables" Schema="dbo" />
-  </EntityContainer>
-  <EntityType Name="RSBDiary">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="jurisdiction" Type="varchar" Nullable="true" MaxLength="255" />
-    <Property Name="case_name" Type="varchar" Nullable="true" MaxLength="255" />
-    <Property Name="case_no" Type="varchar" Nullable="true" MaxLength="255" />
-    <Property Name="hearing_date" Type="datetime" Nullable="true" />
-    <Property Name="judge" Type="varchar" Nullable="true" MaxLength="100" />
-    <Property Name="transcript_particular_type_id" Type="int" Nullable="true" />
-    <Property Name="is_daily" Type="int" Nullable="true" />
-    <Property Name="sound_type_id" Type="int" Nullable="true" />
-    <Property Name="sound_centre_id" Type="int" Nullable="true" />
-    <Property Name="transcript_copy_type_id" Type="int" Nullable="true" />
-    <Property Name="tr_cancelled_date" Type="datetime" Nullable="true" />
-    <Property Name="level8_copy_date" Type="datetime" Nullable="true" />
-    <Property Name="completed_by_name" Type="varchar" Nullable="true" MaxLength="255" />
-    <Property Name="actual_num_of_pages" Type="int" Nullable="true" />
-    <Property Name="estimated_num_of_pages" Type="int" Nullable="true" />
-    <Property Name="reporters_list" Type="varchar" Nullable="true" MaxLength="255" />
-    <Property Name="private_contractor_id" Type="int" Nullable="true" />
-    <Property Name="is_handed_down" Type="int" Nullable="true" />
-    <Property Name="comments" Type="varchar" Nullable="true" MaxLength="255" />
-    <Property Name="cancel_reason" Type="varchar" Nullable="true" MaxLength="255" />
-  </EntityType>
-  <EntityType Name="PrivateContractors">
-    <Key>
-      <PropertyRef Name="private_contractor_id" />
-    </Key>
-    <Property Name="private_contractor_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="private_contractor_name" Type="varchar" Nullable="false" MaxLength="255" />
-    <Property Name="private_contractor_email" Type="varchar" Nullable="true" MaxLength="255" />
-  </EntityType>
-  <EntityType Name="TranscriptCopyTypes">
-    <Key>
-      <PropertyRef Name="transcript_copy_type_id" />
-    </Key>
-    <Property Name="transcript_copy_type_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="transcript_copy_type" Type="varchar" Nullable="false" MaxLength="50" />
-  </EntityType>
-  <EntityType Name="TranscriptParticularTypes">
-    <Key>
-      <PropertyRef Name="transcript_particular_type_id" />
-    </Key>
-    <Property Name="transcript_particular_type_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="transcript_particular_type" Type="varchar" Nullable="false" MaxLength="50" />
-  </EntityType>
-  <EntityType Name="TranscriptSoundTypes">
-    <Key>
-      <PropertyRef Name="transcript_sound_type_id" />
-    </Key>
-    <Property Name="transcript_sound_type_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="transcript_sound_type" Type="varchar" Nullable="false" MaxLength="50" />
-  </EntityType>
-</Schema></edmx:StorageModels>
+    <Schema Namespace="RSBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="RSBDiary">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="jurisdiction" Type="varchar" MaxLength="255" />
+          <Property Name="case_name" Type="varchar" MaxLength="255" />
+          <Property Name="case_no" Type="varchar" MaxLength="255" />
+          <Property Name="hearing_date" Type="date" />
+          <Property Name="judge" Type="varchar" MaxLength="100" />
+          <Property Name="transcript_particular_type_id" Type="int" />
+          <Property Name="is_daily" Type="int" />
+          <Property Name="sound_type_id" Type="int" />
+          <Property Name="sound_centre_id" Type="int" />
+          <Property Name="transcript_copy_type_id" Type="int" />
+          <Property Name="tr_cancelled_date" Type="date" />
+          <Property Name="level8_copy_date" Type="date" />
+          <Property Name="completed_by_name" Type="varchar" MaxLength="255" />
+          <Property Name="actual_num_of_pages" Type="int" />
+          <Property Name="estimated_num_of_pages" Type="int" />
+          <Property Name="reporters_list" Type="varchar" MaxLength="255" />
+          <Property Name="private_contractor_id" Type="int" />
+          <Property Name="is_handed_down" Type="int" />
+          <Property Name="comments" Type="varchar" MaxLength="255" />
+          <Property Name="cancel_reason" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityContainer Name="RSBModelStoreContainer">
+          <EntitySet Name="RSBDiary" EntityType="Self.RSBDiary" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="RSBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -99,40 +66,7 @@
         </EntityType>
         <EntityContainer Name="RSBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="RSBDiary" EntityType="Self.RSBDiary" />
-          <EntitySet Name="PrivateContractors" EntityType="RSBModel.PrivateContractor" />
-          <EntitySet Name="TranscriptCopyTypes" EntityType="RSBModel.TranscriptCopyType" />
-          <EntitySet Name="TranscriptParticularTypes" EntityType="RSBModel.TranscriptParticularType" />
-          <EntitySet Name="TranscriptSoundTypes" EntityType="RSBModel.TranscriptSoundType" />
         </EntityContainer>
-        <EntityType Name="PrivateContractor">
-          <Key>
-            <PropertyRef Name="private_contractor_id" />
-          </Key>
-          <Property Name="private_contractor_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="private_contractor_name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="private_contractor_email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="TranscriptCopyType">
-          <Key>
-            <PropertyRef Name="transcript_copy_type_id" />
-          </Key>
-          <Property Name="transcript_copy_type_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="transcript_copy_type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="TranscriptParticularType">
-          <Key>
-            <PropertyRef Name="transcript_particular_type_id" />
-          </Key>
-          <Property Name="transcript_particular_type_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="transcript_particular_type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="TranscriptSoundType">
-          <Key>
-            <PropertyRef Name="transcript_sound_type_id" />
-          </Key>
-          <Property Name="transcript_sound_type_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="transcript_sound_type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -166,40 +100,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="PrivateContractors">
-      <EntityTypeMapping TypeName="IsTypeOf(RSBModel.PrivateContractor)">
-        <MappingFragment StoreEntitySet="PrivateContractors">
-          <ScalarProperty Name="private_contractor_id" ColumnName="private_contractor_id" />
-          <ScalarProperty Name="private_contractor_name" ColumnName="private_contractor_name" />
-          <ScalarProperty Name="private_contractor_email" ColumnName="private_contractor_email" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="TranscriptCopyTypes">
-      <EntityTypeMapping TypeName="IsTypeOf(RSBModel.TranscriptCopyType)">
-        <MappingFragment StoreEntitySet="TranscriptCopyTypes">
-          <ScalarProperty Name="transcript_copy_type_id" ColumnName="transcript_copy_type_id" />
-          <ScalarProperty Name="transcript_copy_type" ColumnName="transcript_copy_type" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="TranscriptParticularTypes">
-      <EntityTypeMapping TypeName="IsTypeOf(RSBModel.TranscriptParticularType)">
-        <MappingFragment StoreEntitySet="TranscriptParticularTypes">
-          <ScalarProperty Name="transcript_particular_type_id" ColumnName="transcript_particular_type_id" />
-          <ScalarProperty Name="transcript_particular_type" ColumnName="transcript_particular_type" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="TranscriptSoundTypes">
-      <EntityTypeMapping TypeName="IsTypeOf(RSBModel.TranscriptSoundType)">
-        <MappingFragment StoreEntitySet="TranscriptSoundTypes">
-          <ScalarProperty Name="transcript_sound_type_id" ColumnName="transcript_sound_type_id" />
-          <ScalarProperty Name="transcript_sound_type" ColumnName="transcript_sound_type" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-  </EntityContainerMapping>
+    </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->

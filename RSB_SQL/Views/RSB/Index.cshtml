@@ -2,6 +2,7 @@
 
 @{
             Layout = null;
+            ViewBag.Title = "RSB Application";
 }
 
 <!DOCTYPE html>
@@ -17,7 +18,7 @@
     </style>
 
     <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+    <title>@ViewBag.Title.</title>
 </head>
 @Styles.Render("~/Content/css")
 @Scripts.Render("~/bundles/modernizr")
@@ -49,39 +50,39 @@
 
     <h4 class="h4">RSB Diary</h4>
     <hr />
- 
+
     @using (Html.BeginForm())
     {
-        <p class="navbar-text">
-            Filter By Case No: @Html.TextBox("SearchString")
-            <input type="submit" value="Search"/>
-        </p>
+    <p class="navbar-text">
+        Filter By Case No: @Html.TextBox("SearchString")
+        <input type="submit" value="Search" />
+    </p>
     }
 
     <table cellpadding="2" cellspacing="2" border="1" class="table">
-            <tr>
-                <th>Case ID</th>
-                <th>Jurisdiction</th>
-                <th>Case Name</th>
-                <th>Case No</th>
-                <th>Hearing Date</th>
-                <th>Judge</th>
-            </tr>
+        <tr>
+            <th>Case ID</th>
+            <th>Jurisdiction</th>
+            <th>Case Name</th>
+            <th>Case No</th>
+            <th>Hearing Date</th>
+            <th>Judge</th>
+        </tr>
 
-            @foreach (RSBDiary rsbDiary in Model)
+        @foreach (RSBDiary rsbDiary in Model)
             {
-                <tr>
-                    <td>@Html.ActionLink(@rsbDiary.id.ToString(), "RSBDiaryDetails", new { CaseID = @rsbDiary.id })</td>
-                    <td>@rsbDiary.jurisdiction</td>
-                    <td>@rsbDiary.case_name</td>
-                    <td>@rsbDiary.case_no</td>
-                    <td>@rsbDiary.hearing_date</td>
-                    <td>@rsbDiary.judge</td>
-                </tr>
+        <tr>
+            <td>@Html.ActionLink(@rsbDiary.id.ToString(), "RSBDiaryDetails", new { CaseID = @rsbDiary.id })</td>
+            <td>@rsbDiary.jurisdiction</td>
+            <td>@rsbDiary.case_name</td>
+            <td>@rsbDiary.case_no</td>
+            <td>@rsbDiary.hearing_date</td>
+            <td>@rsbDiary.judge</td>
+        </tr>
             }
-        </table>
+    </table>
 
- 
+
 </body>
 </html>
 
